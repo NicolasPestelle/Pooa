@@ -25,13 +25,21 @@ public class Composite extends Shape {
         groupe.remove(forme);
     }
 
+    public Shape getForme(int i){
+        return groupe.get(i);
+    }
+
     @Override
     public void paint(GraphicsContext gc) {
-
+        for(Shape c : groupe)
+            c.paint(gc);
     }
 
     @Override
     public boolean isOn(Point2D p) {
-        return false;
+        Boolean tmp = false;
+        for(Shape c : groupe)
+            tmp = c.isOn(p);
+        return tmp;
     }
 }

@@ -4,6 +4,8 @@ import javafx.event.EventHandler;
 import javafx.geometry.Point2D;
 import javafx.scene.input.MouseEvent;
 
+import java.time.Clock;
+
 /**
  * Created by lewandowski on 05/09/2017.
  */
@@ -16,6 +18,7 @@ public class DrawingMouseEventHandler implements EventHandler<MouseEvent> {
     private double orgTranslateX;
     private double orgTranslateY;
 
+    private Composite groupe;
     private Shape currentShape;
 
     public DrawingMouseEventHandler(Drawing drawing) {
@@ -25,6 +28,21 @@ public class DrawingMouseEventHandler implements EventHandler<MouseEvent> {
     @Override
     public void handle(MouseEvent event) {
 
+       /* if(event.getEventType().equals(MouseEvent.MOUSE_CLICKED)){
+            orgSceneX = event.getSceneX();
+            orgSceneY = event.getSceneY();
+
+            for (Shape s : drawing) {
+                if (s.isOn(new Point2D(event.getX(), event.getY()))) {
+                    currentShape = s;
+                }
+            }
+            if (groupe != null) {
+                orgTranslateX = currentShape.getOrigin().getX();
+                orgTranslateY = currentShape.getOrigin().getY();
+            }
+        }*/
+       
         if (event.getEventType().equals(MouseEvent.MOUSE_PRESSED)) {
             orgSceneX = event.getSceneX();
             orgSceneY = event.getSceneY();
