@@ -33,7 +33,7 @@ public class Drawing extends Canvas implements Iterable<Shape> {
     public void addDrawingObserver(DrawingObservers obs){
         observers.add(obs);
     }
-    //meme pour remove
+
     public void removeDrawingObserver(DrawingObservers obs){
         observers.remove(obs);
     }
