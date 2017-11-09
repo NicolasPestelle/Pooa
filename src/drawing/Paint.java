@@ -21,6 +21,7 @@ public class Paint extends Application {
     private Button clearButton;
     private Button circleButton;
     private Button rectangleButton;
+    private Button groupeButtonHandler;
 
     public static void main(String[] args) {
         launch(Paint.class, args);
@@ -68,7 +69,10 @@ public class Paint extends Application {
         rectangleButton = new Button("Rectangle");
         rectangleButton.addEventHandler(ActionEvent.ACTION, new RectangleButtonHandler(drawing));
 
-        hbox.getChildren().addAll(clearButton, circleButton, rectangleButton);
+        groupeButtonHandler = new Button("Grouper");
+        groupeButtonHandler.addEventHandler(ActionEvent.ACTION, new GroupeButtonHandler(drawing));
+
+        hbox.getChildren().addAll(clearButton, circleButton, rectangleButton, groupeButtonHandler);
         return hbox;
     }
 }

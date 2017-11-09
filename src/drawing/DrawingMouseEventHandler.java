@@ -28,21 +28,6 @@ public class DrawingMouseEventHandler implements EventHandler<MouseEvent> {
     @Override
     public void handle(MouseEvent event) {
 
-       /* if(event.getEventType().equals(MouseEvent.MOUSE_CLICKED)){
-            orgSceneX = event.getSceneX();
-            orgSceneY = event.getSceneY();
-
-            for (Shape s : drawing) {
-                if (s.isOn(new Point2D(event.getX(), event.getY()))) {
-                    currentShape = s;
-                }
-            }
-            if (groupe != null) {
-                orgTranslateX = currentShape.getOrigin().getX();
-                orgTranslateY = currentShape.getOrigin().getY();
-            }
-        }*/
-       
         if (event.getEventType().equals(MouseEvent.MOUSE_PRESSED)) {
             orgSceneX = event.getSceneX();
             orgSceneY = event.getSceneY();

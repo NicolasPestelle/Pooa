@@ -17,8 +17,8 @@ public class Composite extends Shape {
         groupe = new ArrayList<>();
     }
 
-    public void addGroupe(Shape forme){
-        groupe.add(forme);
+    public void addGroupe(ArrayList<Shape> formes){
+        groupe.addAll(formes);
     }
 
     public void removeGroupe(Shape forme){
@@ -29,6 +29,22 @@ public class Composite extends Shape {
         return groupe.get(i);
     }
 
+    public void setOrigin(Point2D origin){
+        double ancienx = this.origin.getX();
+        double ancieny = this.origin.getY();
+        double translatex =  origin.getX()-ancienx;
+        double translatey = origin.getY()-ancieny;
+
+        this.origin = new Point2D(origin.getX(),origin.getY());
+        for(int i = 0; i < groupe.size(); i++)
+        {
+            double tx = translatex + groupe.get(i).getOrigin().getX();
+            double ty = translatey + groupe.get(i).getOrigin().getY();
+            groupe.get(i).setOrigin(tx, ty);
+        }
+
+    }
+
     @Override
     public void paint(GraphicsContext gc) {
         for(Shape c : groupe)
@@ -37,9 +53,9 @@ public class Composite extends Shape {
 
     @Override
     public boolean isOn(Point2D p) {
-        Boolean tmp = false;
+
         for(Shape c : groupe)
-            tmp = c.isOn(p);
-        return tmp;
+           if(c.isOn(p)) return true;
+        return false;
     }
 }

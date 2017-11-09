@@ -8,6 +8,8 @@ import javafx.scene.canvas.GraphicsContext;
  */
 public abstract class Shape {
 
+    //méthode savoir s'il est selectionner
+
     protected Point2D origin;
 
     public Shape(Point2D origin) {
